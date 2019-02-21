@@ -5,7 +5,8 @@ import (
 	"github.com/63isOK/golearn/stringutil"
 )
 
-func main(){
+func main() {
 	fmt.Println("hello world.")
 	fmt.Println(stringutil.Reverse("hello world."))
+	fmt.Println()
 }
