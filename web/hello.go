@@ -5,16 +5,26 @@ import (
 	"net/http"
 )
 
-func handler(writer http.ResponseWriter, request *http.Request) {
+type h1 struct{}
+type h2 struct{}
+
+func (h *h1) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	fmt.Fprintf(writer, "hello, %s", request.URL.Path[1:])
 }
 
-func handler2(writer http.ResponseWriter, request *http.Request) {
+func (h *h2) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	fmt.Fprintf(writer, "hello2, %s", request.URL.Path[1:])
 }
 
 func main() {
-	http.HandleFunc("/1/", handler2)
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	hi1 := h1{}
+	hi2 := h2{}
+
+	server := http.Server{
+		Addr: ":8080",
+	}
+
+	http.Handle("/1/*", &hi1)
+	http.Handle("/2/*", &hi2)
+	server.ListenAndServe()
 }
