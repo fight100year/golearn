@@ -370,4 +370,68 @@ http2 需要使用https
 
 # process request
 
+前面提到过：  
+RUI form:  
+    < scheme name> : < hierarchical part> [ ? < query> ][ # < fragment> ]"
 
+http://user:passwd@www.baidu.com/doc/file?name=test&ip=123#sum  
+
+RUL form：  
+scheme://[userinfo@]host/path[?query][#fragment]  
+eg: http://www.example.com/post?id=123&thread_id=456
+
+query是k-v键值对，fragment在浏览器发送请求之前就被丢弃了，所以服务端不考虑这个，
+但是非浏览器工具发送请求时，有可能有这个fragment，就需要做特殊处理了
+
+http头，在库中用Header类型来表示
+```go
+    type Header map[string][]string  // 是一个map类型
+
+    // 主要4个基本方法，用于增删改查
+    func (h Header) Add(key, value string)
+    func (h Header) Del(key string)
+    func (h Header) Get(key string) string
+    func (h Header) Set(key, value string)
+
+    // Add和Set的区别
+    // Header的key是string， value是[]string 切片
+    // Set是先创建一个空白切片，切片的第一个值就是value
+    // Add是在切面后面追加
+```
+
+http消息体，用 Body io.ReadCloser来表示
+```go
+    Body io.ReadCloser
+
+    type ReadCloser interface {
+      Reader
+      Closer
+    }
+
+    type Reader interface {
+        Read(p []byte) (n int, err error)
+    }
+
+    type Closer interface {
+        Close() error
+    }
+```
+消息体是一个接口，实际上用两个接口来表示：
+- Reader：用于读body
+- Close：
+
+http GET 请求不带消息体，POST才带，浏览器地址栏的请求都是GET请求，
+如果要发post请求，只能用其他工具
+
+## 表单
+
+http post一般会带一个表单，也就是form，
+而request中message的组织有多种方式，都可由请求之前指定：
+- 简单的文本，使用url编码格式
+- 大数据(eg:file),使用multipart- MIME格式
+- 二进制，使用base64编码格式
+
+http get是没有消息体，也就是没有body的，她的参数都是加在url后面的
+
+### new book
+- [hands on software architecture with golang](/hands_on_golang/README.md)
