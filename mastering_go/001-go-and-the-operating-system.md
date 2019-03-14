@@ -43,3 +43,34 @@ go发布时带有很多工具包，有个叫godoc的工具，可以直接查看
     godoc -http=:8081 通过网页访问，可以看到和官网一样的网站
 
 go不太注重源码的文件名，main函数是入口，一个项目只能有一个
+
+go build file  编译  
+go run 运行，生成的可执行文件随后会删除掉
+
+go的两条规则：
+- 要么使用package，要么不包含package
+- 大括号的格式化，只有一种方式
+
+除了标准库，还可以使用github上的库，eg：  
+go get -v github.com/mactsouk/go/xxx,
+下载的项目在$GOPATH/src/github.com/下面,
+go get还会对项目进行编译，结果放在 $GOPATH/pkg/linux_amd64/github.com/
+
+go clean -i -v -x github.com/mactsouk/go/xxx 清理不需要的项目
+
+unix文件描述符：
+- 0 /dev/stdin    os.Stdio
+- 1 /dev/stdout   os.Stdout
+- 2 /dev/stderr   os.Stderr
+
+fmt有很多打印函数：
+- fmt.Print() 一般打印
+- fmt.Println() 多了一个换行，参数之间多了加一个空格
+- fmt.Printf() 格式化打印
+ 
+除此之外，还有S家族打印函数,fmt.Sprint(),fmt.Sprintln(),
+fmt.Sprintf(),用于组成一个字符串
+ 
+F家族打印函数,fmt.Fprint(),fmt.Fprintln(),fmt.Fprintf(),
+用于向一个文件写字符串
+
