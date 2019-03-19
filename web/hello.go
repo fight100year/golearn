@@ -9,11 +9,17 @@ type h1 struct{}
 type h2 struct{}
 
 func (h *h1) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	fmt.Fprintf(writer, "hello, %s", request.URL.Path[1:])
+	// fmt.Fprintf(writer, "hello, %s", request.URL.Path[1:])
+	header := request.Header
+	fmt.Fprintln(writer, header)
 }
 
-func (h *h2) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	fmt.Fprintf(writer, "hello2, %s", request.URL.Path[1:])
+func (h *h2) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	// fmt.Fprintf(writer, "hello2, %s", request.URL.Path[1:])
+	len := r.ContentLength
+	body := make([]byte, len)
+	r.Body.Read(body)
+	fmt.Fprintln(w, string(body))
 }
 
 func main() {
@@ -24,7 +30,7 @@ func main() {
 		Addr: ":8080",
 	}
 
-	http.Handle("/1/*", &hi1)
-	http.Handle("/2/*", &hi2)
+	http.Handle("/abc", &hi1)
+	http.Handle("/2", &hi2)
 	server.ListenAndServe()
 }
