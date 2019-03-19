@@ -437,6 +437,16 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [hands on software architecture with golang](/hands_on_golang/README.md)
 - [mastering go](/mastering_go/README.md)
 
+### debug
+- [delve](/debug.md)
+
 ### package(pkg)
 - [fmt](/pkg/fmt.md)
+- [io](/pkg/io.md)
+- [os](/pkg/os.md)
+- [bufio](/pkg/bufio.md)
+- [strconv](/pkg/strconv.md)
+- [log](/pkg/log.md)
+- [path](/pkg/path.md)
+- [errors](/pkg/errors.md)
   
