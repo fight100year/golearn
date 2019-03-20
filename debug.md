@@ -25,13 +25,13 @@ chear-checkpoint (clearcheck) | 删除checkpoint
 clearall | 删除多个breakpoint
 condition (cond)| 设置条件断点、跟踪点
 config | 修改配置
-    config -list | 显示所有配置参数
-    config -save | 将配置持久化到磁盘
-    config <k> <v> | 修改配置的值
-    config substitute-path <from> <to> | 新增替换规则
-    config substitute-path <from> | 移除替换规则
-    config alias <cmd> <alias> | 定义一个别名
-    config alias <alias> | 删除一个别名
+  config -list | 显示所有配置参数
+  config -save | 将配置持久化到磁盘
+  config <k> <v> | 修改配置的值
+  config substitute-path <from> <to> | 新增替换规则
+  config substitute-path <from> | 移除替换规则
+  config alias <cmd> <alias> | 定义一个别名
+  config alias <alias> | 删除一个别名
 continue (c) | 继续执行
 deferred | 命令延时执行
 disassemble (disass) | 汇编
