@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "errors"
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
@@ -14,7 +14,7 @@ func main() {
 
 	for i := 1; i < len(args); i++ {
 		f, err := strconv.ParseFloat(args[i], 64)
-		if err != nil {
+		if err == nil {
 			num++
 			sum += f
 		}
