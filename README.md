@@ -454,5 +454,6 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [unsafe](/pkg/unsafe.md)
 - [strings](/pkg/strings.md)
 - [sort](/pkg/sort.md)
-  
-
+- [regexp](/pkg/regexp.md)
+- [unicode](/pkg/unicode.md)
+- [math/big](/pkg/big.md)
