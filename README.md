@@ -457,3 +457,4 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [regexp](/pkg/regexp.md)
 - [unicode](/pkg/unicode.md)
 - [math/big](/pkg/big.md)
+- [math/rand](/pkg/rand.md)
