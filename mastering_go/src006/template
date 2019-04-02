@@ -1,0 +1,5 @@
+计算整数的平方
+
+{{ range . }} {{ printf "%d" .Number }} 的平方是 {{ printf "%d" .Square }}
+
+{{ end }}
