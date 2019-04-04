@@ -7,3 +7,4 @@
 - [enhancing go code with data structures](/mastering_go/005-enhancing-go-code-with-data-structures.md)
 - [what you might not know about go packages](/mastering_go/006-something-about-package.md)
 - [reflection and interfaces for all seasons](/mastering_go/007-reflection-and-interfaces-for-all-seasons.md)
+- [telling a unix system what to do](/mastering_go/008-telling-a-unix-system-what-to-do.md)
