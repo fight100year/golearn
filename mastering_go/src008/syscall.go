@@ -63,7 +63,7 @@ func main() {
 				return
 			}
 
-			calls[regs.Orig_rax]++
+			counter[regs.Orig_rax]++
 			cnt++
 		}
 
@@ -82,7 +82,7 @@ func main() {
 		before = !before
 	}
 
-	for i, x := range calls {
+	for i, x := range counter {
 		if x != 0 {
 			fmt.Println(calls[i], "->", x)
 		}
