@@ -8,3 +8,5 @@
 - [what you might not know about go packages](/mastering_go/006-something-about-package.md)
 - [reflection and interfaces for all seasons](/mastering_go/007-reflection-and-interfaces-for-all-seasons.md)
 - [telling a unix system what to do](/mastering_go/008-telling-a-unix-system-what-to-do.md)
+- [go concurrency - goroutines, channels, and pipelines](/mastering_go/009-go-concurrency.md)
+- [go concurrency - advanced topics](/mastering_go/009-go-concurrency2.md)

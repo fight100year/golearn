@@ -83,4 +83,8 @@ go中可以使用https://github.com/iovisor/gobpf
 
 标准库syscall中也可以跟踪一些信息，eg：寄存器
 
+syscall的一些跟踪用法还是需要进一步深入之后再分析。
+
+画图可以选用glot： https://github.com/Arafatk/glot
+
 
