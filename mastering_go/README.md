@@ -10,3 +10,4 @@
 - [telling a unix system what to do](/mastering_go/008-telling-a-unix-system-what-to-do.md)
 - [go concurrency - goroutines, channels, and pipelines](/mastering_go/009-go-concurrency.md)
 - [go concurrency - advanced topics](/mastering_go/009-go-concurrency2.md)
+- [code testing, optimization, and profiling](/mastering_go/011-code-test-optimization-and-profiling.md)
