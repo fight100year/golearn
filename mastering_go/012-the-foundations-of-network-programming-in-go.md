@@ -49,7 +49,54 @@ tcp：transimission control protocol 传输控制协议
 建立连接后，一个全双工的通道就在两端建立了，这样就可以收发数据，
 如果连接断掉了，也会有一套机制告诉相关的程序。
 
-ip：internet protocol 网际协议
+ip：internet protocol 网际协议,有了网际协议，就可以进行网络寻址。
+ip协议不是可靠的，无连接的。tcp/ip来保证数据传递的可靠性。
+
+udp：user datagram protocol, 用户数据报协议，不可靠，但速度快
+
+ipv4:32位二进制，192.168.100.1；
+ipv6:128位二进制，3fce:1706:4523:3:150:f8ff:fe21:56cf
+
+## netcat
+
+nc工具,被称为瑞士军刀，
+功能很多，可以进行端口扫描、传文件、聊天、shell等
+
+- 作为tcp/udp客户端
+    nc ip port // tcp方式
+    nc -u ip port // udp方式
+- 模拟服务端
+    nc -l 
+- 查网络问题
+    nc -v 或是 nc -vv
+
+## 网卡接口信息
+
+数据链路层的以太网协议，规定每个接入网络的设备都要有一个网卡接口，
+和之前说的一样，一个网卡接口信息包括4方面：
+- ip
+- 子网掩码
+- 网关
+- dns
+
+本地一般有一个叫lo的网卡(下面所有的网卡接口network interface简称网卡)，
+这时一个特殊的虚拟网卡，用于本地回环，就是本机内部和自己交互。
+
+## web编程
+
+go中的web编程在效率和安全都做了很多事，但是，
+如果要支持模块、多站点、虚拟主机等强大功能时，推荐使用apache和nginx。
+
+所以go在web编程做做小事还是ok的，其他还不行。
+
+apache的ab压力测试工具，用于测试web编程
+
+抓包工具可以使用tcpdump、wireshark(tshark是命令行版本)
+
+## hugo
+
+go实现的静态站点生成器，和jekyll类似，spf13在google主导这个项目
+
 
 
 

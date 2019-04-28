@@ -442,6 +442,7 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 
 ### net 
 - [网络](/net.md)
+- [域名解析](/dns.md)
 
 ### package(pkg)
 - [fmt](/pkg/fmt.md)
