@@ -11,3 +11,4 @@
 - [go concurrency - goroutines, channels, and pipelines](/mastering_go/009-go-concurrency.md)
 - [go concurrency - advanced topics](/mastering_go/009-go-concurrency2.md)
 - [code testing, optimization, and profiling](/mastering_go/011-code-test-optimization-and-profiling.md)
+- [the foundations of network programming in go](/mastering_go/012-the-foundations-of-network-programming-in-go.md)
