@@ -6,3 +6,4 @@
 - [为啥使用etcd](/etcd/002为啥选择etcd.md)
 - [etcd初体验](/etcd/003etcd初体验.md)
 - [etcd v2 api](/etcd/004etcd-v2-api.md)
+- [etcd v3 api](/etcd/004etcd-v3-api.md)
