@@ -441,6 +441,8 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 
 ### new lib
 -[pion-webrtc](/pion-webrtc/README.md)
+-[grpc使用](/pkg/grpc/README.md)
+-[etcd client](/pkg/etcd/clientv3/README.md)
 
 ### debug
 - [delve](/debug.md)
