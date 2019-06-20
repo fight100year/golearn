@@ -26,4 +26,11 @@ coredns是什么：
 - 快速 灵活，这也是设计目标，也是项目发起的初衷
 - cncf毕业项目
 
+## 官方历史
 
+- coredns项目起源于caddy项目，起初是给caddy项目做一个coredns插件，名字还取了很多，有叫daddy 也有叫caddy-dns, 2016.5.10 
+- 整个项目的定位有了初步思考后，取名为caddy-dns, 2016.5.14
+- 以caddy-dns为名，正式开工， 2016.5.17
+- 官方宣布使用 coredns，不用caddy-dns， 2016.5.18
+
+起于caddy，也继承了caddy的优良血统：链式插件。所以灵活性足够。

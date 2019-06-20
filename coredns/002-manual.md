@@ -152,7 +152,8 @@ import语法
 -  用chaos插件配套的指令来查询 dig @localhost -p 1053 ch version.bind txt
 -  插件还可以包裹一层  . { plugin { chaos } } 
 -  corefile可以有多个服务块 
-```
+
+```corefile
 coredns.io:5300 {
     file db.coredns.io
 }
@@ -175,6 +176,7 @@ example.net:53 {
     cache
 }
 ```
+
 这个就是在两个端口上提供了4个zone服务
 
 扩展插件
@@ -206,10 +208,55 @@ coredns常用的启动项有两个：
 - README.md 显示插件如何配置
 - license 许可文件，这个是coredns需要的类apl许可
 
-## todo
+setup.go/插件名.go:
+- 在init()初始化中，将插件注册到caddy中，指定插件名和和触发时执行的函数
+- 每次命中(请求发送到当前插件)，就会执行上面配置的函数
+- 实际上调用的"插件名.go"的ServeDNS()函数
 
-接下来
-- 了解插件的大致写法
-- 看完所有内置插件的提供的功能
-- 了解coredns + etcd如何提供服务发现
+plugin.Handler接口
+```go
+    type Handler interface {
+    ServeDNS(context.Context, dns.ResponseWriter, *dns.Msg) (int, error)
+    Name() string
+}
+```
+ServeDns()有三个参数，两个返回值：
+- 第一个上下文，跨进程、跨api边界，会用到
+- 第二个是客户端的连接，用于返回响应
+- 第三个是客户端的请求
+- 返回值分别是返回码和错误
+- 这个返回的作用是告诉coredns，有没有响应写到插件链了
+  - SERVFAIL 上面也提到了，如果本插件没有写响应，就返回这个
+  - REFUSED  拒绝
+  - FORMERR  格式错误
+  - NOTIMP   未实现
+  - 上面这4种情况是没有写响应的情况，除此之外，其他都是有写响应的
+
+日志：
+- 如果插件中要打印日志，可以使用log包，这个包不是log插件
+- 支持3中级别：info warning error
+- 一般情况，日志应该在上层打印，插件中一般不打印日志
+- 除非有特殊原因，需要告知用户某些信息，在插件中打印也是ok的，eg：出现致命错误
+
+服务监控的指标 metrics：
+- 如果某个插件要启用监控指标，插件的README.md中，metrics章节会详细介绍哪几个指标
+- 这几个指标在实现时都会指定：namespace是coredns，subsystem是插件名
+- 健康状态监控也是一样的，如果支持健康检查，README.md中也穿在health章节
+
+文档结构：
+- 也就是插件中的README.md
+- title ：插件名
+- 子标题：
+  - name 一句话描述插件作用
+  - description 详细描述，说明插件具体支持哪些功能
+  - syntax 描述插件支持的指令
+  - examples 配置、使用的例子
+  - see also 可选，一般是引用，一般是插件说明的博客，或是ietf支持的rfc标准
+  - bugs 可选，插件当前版本未解决的bug
+  - 还有一些可选的，eg metrics health等
+
+
+
+
+了解coredns + etcd如何提供服务发现,基本看完了，但是没有实际操作，也不是很了解srv服务发现。
 

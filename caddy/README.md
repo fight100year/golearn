@@ -2,6 +2,7 @@
 
 了解：
 - [caddy 介绍](/caddy/doc/hello.md)
+- [入门指导](/caddy/doc/user-guide.md)
 
 
 # 源码分析
