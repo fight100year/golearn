@@ -25,7 +25,7 @@
 | -- | -- | -- | -- | -- | 
 | 增 | add | 信息 | 成功失败、学生编码 | 信息包含： 姓名、性别、年龄、班级 | 
 | 删 | delete | 学生编码 | 成功失败 | | 
-| 改 | updte | 信息 | 成功失败 | 信息包含： 姓名、性别、年龄、班级 | 
+| 改 | update | 信息 | 成功失败 | 信息包含： 姓名、性别、年龄、班级 | 
 | 查 | query | 学生编码 | 成功失败 | 信息包含： 姓名、性别、年龄、班级 | 
 
 业务层利用http提供4个接口，后台持久化采用mysql，本着学习的目标
@@ -37,15 +37,49 @@
 
 ## 实现
 
-- 熟悉quic库：[quic-go]
+- 熟悉quic库：[quic-go]， 这个库依赖太多，深入了解花的时间太多，先还是用http2来实现
+- 熟悉go的net/http库：[net/http], 已搭建一个可运行的、基本的程序，支持4个api：增删改查
+- 确定接口和数据模型
+- 添加一个mysql服务，使用容器即可；熟悉db/sql库
+    - docker pull mysql
+    - docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -di mysql
+    - 熟悉[database/sql库]
+- 修改程序，添加--reset参数，用于初始化db环境；不带参数表示走默认流程
+- 完成了新增
+
+todo:
+- 删改查
 
 
+
+
+
+
+数据模型,单表即可实现：
+
+|字段|说明|备注|
+|--|--|--|
+|id|int 自增索引|可用于标识一个学生|
+|name|char(30) 姓名|不为空|
+|gender|int 性别|1男2女 不为空|
+|age| int 年龄|不为空|
+|class|char(30) 班级|不为空|
+
+|接口|入参|出参|用法|
+|--|--|--|--|
+|add|学生信息|执行结果 + 学生信息|非幂等性，使用一次增加一个学生|
+|delete|学生标识|执行结果||
+|update|学生信息|新学生信息||
+|query|学生标识|学生信息||
 
 
 
 
 
 [quic-go]: /everyday/student/quic-go.md
+[net/http]: /everyday/student/http.md
+[database/sql]: /everyday/student/sql.md
+
 
 
 
