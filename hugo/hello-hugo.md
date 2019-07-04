@@ -317,17 +317,223 @@ page导航本质上是一个导航树,共分两类:
 |例子|content/posts/2019/index.md|content/posts/_index.md|
 |非索引的其他content文件|只能被当成page资源访问|只能被当成常规page访问|
 
+leaf bundle 叶子节点:
+- 在content目录下
+- 包含一个index.md文件
+- 对叶子导航节点来说,深度是无所谓的,只要叶子不是在另一个叶子下就行
+- 有一种特殊的叶子导航节点,叫headless bundle
+    - 并不会被发布
+    - 没有Permalink, 也不会渲染成html到输出目录
+    - 不是.Site.RegularPages, leaf bundle本就不是常规page
+    - 可通过.Site.GetPage获取
+    - 一个leaf要指定为headless,只需在front matter中指定 headless = true即可
+    - headless应用场景: 共享媒体库/重用页面内容的片段
+
+branch bundle 枝干导航节点:
+- 在content目录下
+- 至少包含一个 _index.md文件
+- content目录下也可以有一个 _index.md文件
+
+### hugo支持的content格式
+
+.md是最主要的一个, 其次其他的也会支持,eg: .maark .org .html .htm
+
+hugo中使用黑色星期五来做md文件的解析引擎,目前版本,tab要是4个空格,如果是2个会出错
+
+blackfriday的选项可参考https://gohugo.io/content-management/formats/#blackfriday-extensions
+
+blackfriday的扩展可以查看文章上面的章节
+
+blackfriday支持的md相对于标准来说,做了如下扩展:
+- 任务列表,类似github的 todo list, 这个功能是默认启用的
+- 支持表情,在content内容中直接使用表情,这个功能需要在配置中启用
+- shortcode,类似代码片段,不过这个是原始的html代码片段,好处是扩展md更便捷,hugo重要特性之一
+- code block代码块,类似github的md,也支持代码块的高亮,用3个反勾号即可,高亮引擎默认使用chroma,也可以使用其他的
+
+blackfriday功能上的扩展:
+- mmark,黑色星期五自己实现的md, 感觉没必要
+- 使用mmark,需要在front matter中指明:   markup: mmark
+- mathjax,一个js库,可以直接显示数学公式,使用简单,但也有些限制,具体可以查看文档
+
+hugo对外部工具的支持: 可查看文档
+
+[md链接](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+### front matter
+
+前面一直提到front matter 指的是元数据, 也就是文件头中,用三个短横线包裹的内容,
+下面具体介绍一下front matter
+
+front matter可以添加在:
+- 配置文件config
+- content文件
+
+关于front matter:
+- 翻译: 前端的事项, 是不是指文件头部指定的信息
+- 作用是:可以在content类型的实例中附加元数据,并嵌入到实例中
+- 是hugo的一个重要的能力组件
+- 在yaml格式的配置中,用---作为识别代码
+- 在toml格式的配置中,用+++作为识别代码
+- 在json格式的配置中,用{新行}作为识别代码
+ 
+front matter 中的变量:
+- 预定义变量,在使用时用 .变量名,还分大小写
+    - aliases,发布时,生产的别名,一个或多个,一般用于有修改content文件在渲染时改名的场景
+    - audio,一组和page相关的,音频文件路径,被opengraph内部模板使用
+    - date,page的日期,一般从front matter的date中获取,可配置
+    - description, content的描述
+    - draft, 是否发布草稿.当然,如果启动参数指明不发布草稿,那这个设置就不起作用
+    - expiryDate,过期时间,过期后hugo就不发布这个content,也受启动参数影响
+    - headless, 是否是特殊的leaf bundle
+    - images, 一组和page相关的,图片文件路径,被内部模板使用
+    - isCJKLanguage, 是否是中日韩语言, 会导致字数统计有差异
+    - keywords, 关键字
+    - layout, 布局选择器,和k8s的选择类似,只要选择器的名字一样,就使用指定的布局来套用当前content
+    - lastmod, content最后修改时间
+    - linkTitle, 创建一个链接,指向content,
+    - markup, 实现性功能, 指明当前content的格式. 一般不使用,因为用的主要是md
+    - outputs, 输出格式,种类多多
+    - publishDate, 发布日期,受启动参数影响
+    - resources, 用于配置页面导航资源
+    - series, 一系列page属于哪个系列,可以理解为分类,被opengraph内部模板使用
+    - slug, 输出url的尾部, 看是否需要修改url中的文件名部分
+    - summary, 文本, 也就是摘要
+    - title, content的标题
+    - type, content的类型,自动从目录(section)中继承而来,不能被front matter指定,但可以使用
+    - url, 完整的url路径,当然是渲染之后,可访问的
+    - videos,一组和page相关的,视频文件路径,被opengraph内部模板使用
+    - weight, 加载显示的优先级, 值越小,优先级越高,越优先显示
+    - <taxonomies>, 分类, 可有多个,hugo内置了一些,用户也可以自定义分类,两者工作原理不一样
+- 用户自定义变量,在使用时用 .Params.变量名
+
+front matter中的weight变量,可用于content的排序,分类中也能用到 
+
+### page 资源
+
+page资源,一般包括图片,其他page,文档,还有和page相关的url和元素数据等
+
+- 属性
+    - ResourceType 资源主类型 eg:图片, 图片下还有png 和jpg等
+    - Name 资源名,默认就是文件名,可在front matter中设置
+    - Title 值和资源名一样,可在front matter中设置
+    - Permalink 绝对url, page类型的资源是没有这个值的, page的固定链接是拼出来的
+    - RelPermalink 相对url,
+    - Content 资源内容,大部分资源都是将内容放到字符串里返回
+    - MediaType 资源的mime类型,eg: image/jpg
+    - MediaType.MainType 资源的主mime类型
+    - MediaType.SubType 子mime类型
+    - MediaType.Suffixes mime类型中的后缀
+- 方法
+    - ByType 根据类型获取page资源
+    - Match  根据资源名匹配结果来获取page资源,匹配区分大小写
+    - GetMatch 只返回第一个匹配的page资源
+- 元数据
+    - page资源的元数据由page的front matter和叫resources的参数管理
+    - name 可指定Name
+    - title 可指定Title
+    - params 可自定义k-v对
+    - 占位符 :counter 可用在name/title中, 设置之后,Name和Title才会各自取各自的值
+
+### image处理
+
+image page资源可以 resized and cropped, 重置大小/裁剪
+
+页面导航中,获取所有image
 
 
+```
+{{ with .Resources.ByType "image" }}
+{{ end }}
+``` 
 
+下面的image处理方法,并不适用于/static目录下的图片:
+- Resize 重新定义宽高,可能做了裁剪,可能做了空白填充
+- Fit 缩放到指定宽高
+- Fill 等比缩放到指定宽高,可能会有裁剪
 
+```
+{{ $image := $resource.Resize "600x" }}
+{{ $image := $resource.Resize "x400" }}
+{{ $image := $resource.Resize "600x400" }}
+{{ $image := $resource.Fit "600x400" }}
+{{ $image := $resource.Fill "600x400" }}
+```
 
+目前hugo还不支持image的exif信息,因为go下的库还不支持
 
+处理方法中的一些选项:
+- JPEG Quality, jpeg质量,范围1-100, 默认75
+- Rotate, 旋转
+- Anchor, 坐标点, 只用在等比填充,指明以哪儿为初始点
+- Resample Filter, 重采样filter
 
+最佳实践,将image处理的放在shortcode中
 
+config中配置image处理,在imaging节.就算不指定,hugo也有默认处理
 
+### shortcode
 
+代码段,在content中使用,或在自定义模板中使用,一般里面是html数据
 
+- 在hugo中,md是偏爱的,特别适合content格式,不足之处就衍生出了shortcode
+- md + shortcode + template 保证3个方面都可以独立发展,在生产站点时由hugo来保证衔接
+- 在content中,调用shortcode的方式是 {{% shortcodename params %}}
+- 参数由空格分隔,参数包含空格,就需要用引号包裹
+- 其中的%和<>是一样的,都是终结符,和mysql存储过程的结束符是一个意思
+
+```
+html123
+content
+html456
+
+当html123和html456被抽象成shortcode abc之后,
+content中的写法应该是 {{% abc %}} md内容 {{% /abc %}}
+
+为了照顾到html, 包含shortcode的写法也是成对的,
+当然,如果shortcode里的html是完整的,那就不用成对出现了.
+``` 
+
+shortcode 可以嵌套, 在子shortcode中获取父shortcode,可用.Parent
+
+hugo提供了一些内置的shortcode:
+- figure, 处理image
+    - src, 要显示imge的url
+    - link, 要显示image的超链接,目的地址
+    - target, 可选,如果link指定了,这个设置就有意义
+    - rel, 可选,link指定了才有意义
+    - 等等
+- gist, 适用于blog,适用于在content中引用代码片段
+- highlight, 代码高亮
+- param, 在front matter中查找当前page参数的值
+- ref/relref, 通过相对路径或逻辑名,或固定链接或相对固定链接找page
+
+### content 相关
+
+怎么知道page中包含哪些相关content, 在content的front matter中标记着
+
+两个page相关:
+- 共享相同的数据
+- 共享keyword参数
+
+```
+// 页面集合中相关方法是.RegularPages
+// $related := .Site.RegularPages.Related . 返回和当前页相关的集合
+{{ $related := .Site.RegularPages.Related . | first 5 }}  
+{{ with $related }}
+<h3>See Also</h3>
+<ul>
+	{{ range . }}
+	<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+	{{ end }}
+</ul>
+{{ end }}
+```
+
+fornt matter中定义related:
+- 顶层配置
+    - threshlod, 0-100, 值越小,匹配的越多,相关新越小
+    - includeNewer, 
+- 每个索引的配置,可选
 
 ### content sections
 
@@ -343,5 +549,71 @@ section
 有了内容,再加上模板,就可以构成样式各异的站点,所以,下面常用到  section + 模板,
 这里的section就是内容,一般指层section,如果子section要指定某个模板,
 需要通过front matter 元数据中的type 或是 layout指定
+
+### content type
+
+section和type比较类似, 默认两者取值是一样的,如果在section下指定了archetype,那两者就不一样了
+
+section更多的是站点渲染后的分类, content type更多是源码组织结构
+
+content type:
+- 可以有唯一一个元数据集合(eg: 元数据就是front matter)
+- 可以自定义模板
+- 可以通过hugo new命令创建,期间可以带archetypes
+
+一个content
+- 可能是一个相片/一篇博客,
+- 每一种,都带有不同的元数据集合和不同的可视化渲染方式
+
+hugo中的约定:
+- content type和section是对应的, 一个类型用一种配置,
+- 如果所有的content放在一起,就需要为每个content配置,显然很麻烦
+- 用目录来表示content type,比较简洁
+- 也可以在front matter中用type指定content type,都可以
+
+新建一个content type:
+- 在content下创建一个子目录, eg: content/events/
+- 在events下的content文件的front matter如下配置即可
+
+```
+type = "event"
+layout = "birthday"
+```
+
+所以新建一个content type 非常方便, 渲染指定birthday layout
+
+新建一个layout type:
+- 在/layouts下创建一个event目录即可
+- content type创建时, 目录是events, type是event,目录是复数,带s
+- layout type创建时,目录是单数,不能是复数,也就是不能带s
+
+hugo中的views:
+- content渲染有多种方式
+- 比较特殊的有: 显示section列表的单页面,还要显示摘要
+- 这时就需要在layout type目录下,有一个模板来附加views
+
+自定义content type的模板查找顺序:
+- layouts/event/birthday.html
+- layouts/event/single.html
+- layouts/events/single.html
+- layouts/_default/single.html
+
+如果要创建一个archetype,就要在/archetypes/下创建
+
+### archetypes
+
+- 是一种模板,创建新content时会用到
+- 预先配置了front matter, 使用hugo new 时就会用到
+
+hugo new posts/hello.md, 模板查找顺序:
+- archetypes/posts.md
+- archetypes/default.md
+- themes/my-theme/archetypes/posts.md
+- themes/my-theme/archetypes/default.md
+- 顺序是先找本地,再找主题,先找content type完全匹配的,再找缺省的
+
+
+
+
 
 
