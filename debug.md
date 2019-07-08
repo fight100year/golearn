@@ -14,7 +14,7 @@
 
 cmd | 说明
 ---|---
-arg | 显示函数参数
+args | 显示函数参数
 break (b) | 设置断点
 breakpoints (bp) | 打印断点
 call | 注入一个函数调用，并恢复处理
