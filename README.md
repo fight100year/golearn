@@ -481,6 +481,7 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [context](/pkg/context.md)
 - [net/rpc](/pkg/rpc.md)
 - [encoding](/pkg/encoding.md)
+- [html/template](/pkg/html.md)
 
 # 未来 TODO
 
