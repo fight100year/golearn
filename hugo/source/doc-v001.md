@@ -134,7 +134,7 @@
 - 分页
 - 支持其他顶级page,现在只有homepage,后面还有about等
 - 支持系列
-- 语法告亮
+- 语法高亮
 - 页面的 前一页/后一页
 - 相关post
 - 支持toml的front matter
