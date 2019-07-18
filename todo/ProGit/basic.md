@@ -38,5 +38,21 @@
 - git remote rename 老简写 新简写 远程仓库简写的重命名
 - git remote rm 简写 在配置中移除一个远程仓库
 
+标签:
+- 给历史的某次提交打上标签,以示重要. 最常用的用法是标记发布节点
+- git tag 列出已有标签
+- git tag -l 'xxx\*' 列出xxx开头的标签
+- git tag -a v0.8.0 -m '0.8.0版本' 创建附注标签, -a创建 -m注释
+    - git tag -a v1.0.0 -m '1.0版本' 提交号  为指定提交号创建标签
+- git show 标签名 查看标签信息和对应的提交信息
+- git tag v0.9.0 创建轻量标签 不带-a -s -m参数
+- git push origin v0.8.0 显示将标签推送到远程仓库
+    - git push origin --tags 将所有标签推送到远程仓库
+- git tag -d 标签名 删除本地标签
+- git push 简写 :refs/tags/标签名 删除远程仓库的标签
+- git checkout 标签名 切换到标签指向的文件版本, 会导致detacthed head
+- git checkout -b 分支名 标签名 从指定标签创建一个新分支
 
+别名:
+- 在git config文件中配置,主要是配置一些命令的简写
 
