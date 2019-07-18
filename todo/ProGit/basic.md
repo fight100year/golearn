@@ -27,4 +27,16 @@
 - git reset HEAD file 取消某文件的暂存
 - git checkout -- file 取消工作区的修改(和最后一次提交同步)
 
+远程仓库的管理:
+- git remote 查看已配置的远程仓库,每个仓库会带一个简写,origin是clone时的默认缩写
+- git remote -v 显示远程仓库缩写,及对应的读写url
+- 在协作中,一般会拥有多个远程仓库
+- git remote add 简写 url 添加远程仓库
+- git fetch 简写 从远程仓库拉取数据(将会拥有远程仓库所有分支的引用,此时并未合并)
+- git push origin master 推送到远程仓库,前提是先拉取合并(push之前若有其他人先push,那本次push会失败)
+- git remote show 简写  查看某一远程仓库的详细信息
+- git remote rename 老简写 新简写 远程仓库简写的重命名
+- git remote rm 简写 在配置中移除一个远程仓库
+
+
 

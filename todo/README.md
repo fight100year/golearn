@@ -10,7 +10,7 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
 - [github flow](/todo/github-flow.md) github工作流
 - [开源第一步](/todo/opensource.md) github的open source guides
 - pro git
-    - [ ] [环境配置](/todo/ProGit/start.md)
+    - [x] [环境配置](/todo/ProGit/start.md)
     - [ ] [基础](/todo/ProGit/basic.md)
     - [ ] [分支](/todo/ProGit/branch.md)
     - [ ] [服务器上的git](/todo/ProGit/server.md)
