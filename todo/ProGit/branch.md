@@ -45,6 +45,14 @@ git顶级特性
 - 要推送到远程分支,前提是在远程仓库上有写入权限,其次要手动推送
 - git push 简写 本地分支名:远程分支名 推送本地分支到远程仓库的指定分支
 - 如果远程仓库有某个分支,本地没有: git fetch 可同步到本地,但不会自动生成可编辑副本, git checkout -b xx origin/xx 可创建一个本地分支
+- 如果本地有某个分支没有设置远端分支为上游分支, git branch -u origin/pro-git 即可
 - 从远程跟踪分支checkout出的本地分支,会自动创建"跟踪分支"(跟踪的分支叫"上游分支")
 - 跟踪分支,是和远程分支有直接关系的本地分支,git pull会自动识别去哪个服务器fetch/merge到哪个分支
 - 最常见的跟踪分支是master
+- git branch -vv 显示本地分支的跟踪情况
+- 推荐使用git fetch + git merge, 因为git pull隐藏了很多信息
+- git push origin --delete 分支名 删除远程分支
+
+合并不同分支的方式有两种:一种是merge,一种是rebase.
+- rebase被成为变基
+- rebase有风险,单实现的功能和merge类似,指是历史好看一点
