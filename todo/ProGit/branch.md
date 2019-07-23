@@ -52,6 +52,7 @@ git顶级特性
 - git branch -vv 显示本地分支的跟踪情况
 - 推荐使用git fetch + git merge, 因为git pull隐藏了很多信息
 - git push origin --delete 分支名 删除远程分支
+    - 如果远程分支已删除,本地分支已删除,还存在fetch的远程分支,使用 git remote prune 简写 来删除不该存在分支
 
 合并不同分支的方式有两种:一种是merge,一种是rebase.
 - rebase被成为变基

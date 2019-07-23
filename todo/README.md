@@ -20,3 +20,5 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
     - [ ] [自定义git](/todo/ProGit/diy.md)
     - [ ] [git和其他系统](/todo/ProGit/other-system.md)
     - [ ] [git内部原理](/todo/ProGit/inside.md)
+- github
+    - [github project](/todo/github-project.md) 使用github project时的一些记录
