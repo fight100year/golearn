@@ -15,7 +15,8 @@
 - [各个地方的优化和bug修复](/hugo/source/4.md),content目录在代码和概念上统一,添加输出目录,用于将static和输出分开
 - [10 pr, 解决windows上section标签导致的异常](/hugo/source/5.md), 解决不同平台url分隔符的异常,解决无content时的异常
 - [前一页后一页,索引支持](/hugo/source/6.md), 发布0.8.0,修复bug,添加新功能:支持索引,前一页后一页
-- [](/hugo/source/7.md), 
+- [支持别名/重定向](/hugo/source/7.md), 发布0.9.0,修复bug,支持别名
+- [](/hugo/source/8.md), 
 
 
 
