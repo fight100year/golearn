@@ -15,7 +15,7 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
     - [x] [分支](/todo/ProGit/branch.md)
     - [x] [服务器上的git](/todo/ProGit/server.md)
     - [x] [分布式git](/todo/ProGit/distributed.md)
-    - [ ] [github](/todo/ProGit/github.md)
+    - [x] [github](/todo/ProGit/github.md)
     - [ ] [git工具](/todo/ProGit/tools.md)
     - [ ] [自定义git](/todo/ProGit/diy.md)
     - [ ] [git和其他系统](/todo/ProGit/other-system.md)
