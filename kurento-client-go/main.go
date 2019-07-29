@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func page(w http.ResponseWriter, r *http.Request) {
@@ -19,20 +20,24 @@ func page(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "index.html")
 }
 
-func wsServe(hub *Hub) {
+func wsServe(hub *hub) {
 	http.HandleFunc("/", page)
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
 		serveWs(hub, w, r)
 	})
 
-	err := http.ListenAndServe(":9000", nil)
-	if err != nil {
-		fmt.Println(err)
-	}
+	go func() {
+		err := http.ListenAndServe(":9000", nil)
+		if err != nil {
+			fmt.Println(err)
+		}
+	}()
 }
 
-func wsClient(hub *Hub) {
-
+// wsClient 处理kms客户端的连接
+// 函数内部可扩展,用以使用多个kms服务
+func wsClient(hub *hub) {
+	go clientWs(hub, "192.168.10.180:8766")
 }
 
 func main() {
@@ -42,4 +47,5 @@ func main() {
 	wsServe(hub)
 	wsClient(hub)
 
+	time.Sleep(10 * time.Minute)
 }
