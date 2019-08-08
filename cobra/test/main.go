@@ -17,7 +17,7 @@ func init() {
 }
 
 var rootCmd = &cobra.Command{
-	Use:   "test",
+	Use:   "`aab` -s abc -i 123",
 	Short: "for test",
 	Long:  `just for test`,
 	Run: func(cmd *cobra.Command, args []string) {
