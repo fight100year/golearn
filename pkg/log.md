@@ -31,5 +31,26 @@ ubuntu18.04中，使用的是rsyslogd,日志类别配置在rsyslog.conf中，
 unix并不是配置了所有的日志类别，我们可以配置一些自定义的，
 有很多日志信息，如果类别在指定unix系统中没指定，就会被丢弃。
 
+## source analyze
 
+- every log message is output on a separate line
+- Fatal() will call os.Exit(1) after writing the log message
+- Painc() wile call panic() after writing the log message
+
+output format:
+- prefix
+- year/month/day hour:mimute:second.123456
+- [file path | file name] : line : 
+
+## example analyze
+
+- unit testing
+- black-box testing
+- benchmark testing
+- example (demo for usage)
+
+## summary
+
+- package log is very sample
+- default logger output to stderr, format is : year/month/day hour:mimute:second `message`
 
