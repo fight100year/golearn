@@ -21,3 +21,20 @@ cobra所有的操作都是围绕着Command来做的,其他的都是和其他工�
 ## 查看hugo中cobra的用法
 
 todo: 继续补充类图
+
+## 历史版本阅读
+
+### v0.0.1
+
+一个命令的flag分类:
+- 一个全集,包含所有的flag
+- persistent flag
+- local flag
+- inherited flag 继承的flag
+- 父命令的 persistent flag
+
+如果不考虑command对象的扩展功能,核心功能还是很简单的:
+拿到一个命令行,识别命令,解析参数,执行命令,有错就报错.
+
+
+
