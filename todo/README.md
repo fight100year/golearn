@@ -24,3 +24,8 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
     - [github project](/todo/github-project.md) 使用github project时的一些记录
 - pro vim
     - [ ] [pro vim](/todo/ProVim/hello.md)
+- 技术达人 - 黄峰达的建议:
+    - 善用github
+    - 编码能力的提升在于长时间的练习
+    - 质量保证使用tdd/重构
+
