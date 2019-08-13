@@ -446,6 +446,7 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [etcd client](/pkg/etcd/clientv3/README.md)
 - [caddy](/caddy/README.md)
 - [hugo](/hugo/README.md)
+- [cobra](/cobra/README.md)
 - [websocket](/websocket/README.md) 非官方版本的ws库,而是gorilla的ws库,官方也推荐使用这个
 
 ## everyday
@@ -468,7 +469,7 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [os](/pkg/os.md)
 - [bufio](/pkg/bufio.md)
 - [strconv](/pkg/strconv.md)
-- [log](/pkg/log.md)
+- [log](/pkg/log.md) [jww](/pkg/jww.md)是对log的一个扩展
 - [path](/pkg/path.md)
 - [errors](/pkg/errors.md)
 - [runtime](/pkg/runtime.md)
