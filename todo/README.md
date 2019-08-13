@@ -22,5 +22,6 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
     - [ ] [git内部原理](/todo/ProGit/inside.md)
 - github
     - [github project](/todo/github-project.md) 使用github project时的一些记录
+    - [github best practices](/todo/github-best-practices.md)
 - pro vim
     - [ ] [pro vim](/todo/ProVim/hello.md)
