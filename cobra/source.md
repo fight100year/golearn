@@ -36,5 +36,15 @@ todo: 继续补充类图
 如果不考虑command对象的扩展功能,核心功能还是很简单的:
 拿到一个命令行,识别命令,解析参数,执行命令,有错就报错.
 
+实际用法也遵循了套路:
+- 在init()中定义命令行的flag
+- main()调用Execute(),里面调用了解析参数,指定指定命令
 
+init()中的讨论:
+- rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.cobra.yaml)")
+- rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
+- addCmd.Flags().StringVarP(&packageName, "package", "t", "", "target package name (e.g. github.com/spf13/hugo)") 
+- addCmd.Flags().StringVarP(&parentName, "parent", "p", "RootCmd", "variable name of parent command for this command")
+
+`其他版本也大多类似`,所以不再分析
 
