@@ -489,6 +489,8 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [encoding](/pkg/encoding.md)
 - [html/template](/pkg/html.md)
 
+[标准库](/std/README.md)和[关系](https://www.draw.io/?mode=github#H63isOK%2Fconference_graph%2Fmaster%2Fgo%20v1.12.6%E6%A0%87%E5%87%86%E5%BA%93%E4%BE%9D%E8%B5%96%E5%9B%BE-%E5%85%B1193%E4%B8%AA)
+
 # 未来 TODO
 
 需要奋力追赶的方向，也是欠下的技术债
