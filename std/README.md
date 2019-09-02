@@ -11,3 +11,8 @@
 运行: go run std.go,数据在info里,也可以通过go list -json std 获取,再转成json格式即可
 
 
+## package 分类
+
+目前接触到的分类有：
+- std 就是标准库里的包 go list -json std
+- builtin 语言内置包，主要是声明一些标识符 go list -json builtin
