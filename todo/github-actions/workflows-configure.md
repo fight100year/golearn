@@ -195,7 +195,28 @@ github actions利用github的api，让管理工作流(就是上面那些事)成�
         - jobs.<job_id>.steps.timeout-minutes job运行的最大时长，超过就kill
     - jobs.job_id.timeout-minutes 工作流运行的最大时长 默认是360=6小时
     - jobs.job_id.strategy 创建构建矩阵
-    - jobs.job_id.strategy.matrix 具体的构建矩阵
+        - jobs.job_id.strategy.matrix 具体的构建矩阵
+        - 构建矩阵的每个条件都可以对应多个版本等，这样会创建多个job
+        - 可以用include来指定某个条件下的新约束
+        - 可以用exclude来排除某个条件下的约束
+        - 设置fail-fast 为true表示如果某个job出错，会取消所有矩阵对应的job，默认是true
+        - max-parallel 可指定矩阵运行的job的最大并发数，github 会默认执行所有的矩阵
+    - jobs.<job_id>.container
+        - 在job中一个容器包含任意个step
+        - 如果不设置容器，那所有的step都运行在虚拟环境
+        - 如果一个step中包含了脚本action和容器action，那容器action就运行在容器中，这些容器共享网络和存储
+        - 容器可指定相关参数，如果不指定，可省略image关键字
+        - image：docker镜像，生成的容器用于运行action
+        - env：容器的环境变量，可用数组传递
+        - ports：容器暴露端口
+        - volumes：容器存储
+        - options：附加选项
+    - jobs.<job_id>.services
+        - 工作流中一个job的附加容器
+        - eg：创建db服务，创建缓存redis服务，虚拟环境实例自动管理网络和这些服务容器的生命周期
+
+
+        
 
 
 
