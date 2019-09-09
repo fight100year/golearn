@@ -267,6 +267,46 @@ webhook事件：
 
 ## 虚拟环境
 
+- 这个虚拟环境由github提供，里面包含了一些工具/包/可设置的action
+- 这些虚拟环境跑在微软的azure(一个云服务)，具体是Standard_DS2_v2机器，毕竟github给微软收购了
+- windows和linux跑在Standard_DS2_v2虚拟机，macos跑在macstadium
+- 可以直接跑在虚拟环境中，或泡在docker容器中
+- 每个job都放在一个独立的虚拟环境实例中
+    - job中的step都在这个虚拟环境实例中运行
+    - 所有action就能利用文件系统共享书信
+    - 当然，也可以配置成job都跑在同一个环境中
+- 每个虚拟环境可用资源是 双核cpu/7G内存/14G ssd磁盘空间
+
+直接跑在虚拟环境中，部分文件系统路径：
+- docker容器运行的action，是在/github目录下，而脚本的的目录并不是静态的
+- github actions中可配置 home/workspace/workflow目录
+    - home： 用户数据，环境变量对应HOME - workspace： actions执行目录，环境变量对应 GITHUB_WORKSAPCE
+    - workflow/event.json： 触发工作流的webhook事件的POST payload，环境变量对应GITHUB_EVENT_PATH
+
+跑在docker容器，部分文件系统路径：
+- /github/home  /github/workspace  /github/workflow
+- 上面是默认路径，github推荐不要修改默认的环境变量 
+
+关于环境变量：
+- workflow run中的每个step都可以访问环境变量
+- 一般在配置文件 workflow file中指定环境变量
+- 可以通过jobs.job_id.steps.env 来为一个spte指定环境变量
+- github会自动将环境变量转成大写，所以在配置中写环境变量时，大小写均是支持的
+- 推荐在actions中使用环境变量来访问文件系统，而不是硬编码(直接将文件路径卸载actins中)
+- 虚拟环境已经提供了一些默认的环境变量，具体可查看文档
+- 自定义的环境变量来表示文件路径，推荐使用\_PATH作为后缀
+
+安全：
+- 加密，环境变量也可以进行加密来保证安全
+- 这些加密信息只能用于github actions
+- 这些安全加密的信息要在github 仓库页去设置，然后通过配置文件，通过环境变量传递给action
+- 具体的安全信息的配置和使用，可查看文档
+
+结束代码和状态：
+- 可以用返回码来表示action的执行状态
+    - 0 表示成功
+    - 非0 表示失败
+
 ## 虚拟环境中的软件
 
 ## 上下文和表达式语法
