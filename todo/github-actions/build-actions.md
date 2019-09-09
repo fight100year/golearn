@@ -1,5 +1,7 @@
 # 构建action
 
+## action 的说明
+
 - 可以编写自定义代码来创建actions
 - 这个action可以以你喜欢的方式来和仓库交互
     - 通过整合github api或其他公开可用的第三方api来实现
@@ -41,5 +43,45 @@ action的readme：
 - 使用了哪些环境变量
 - 一个如何在工作流中使用action的例子
 
+## 元文件语法
 
+上面也提到过了，在仓库中创建一个action来执行某个任务，需要一个元文件
+
+docker容器型action和js型的action都需要一个元文件，action.yml,
+这个文件定义了输入/输出/和action的入口，格式是yaml
+
+语法：
+- name：action的名称，用于github显示，标识不同的actions
+- author：可选，action的作者
+- description： 一个简短的说明
+- inputs：可选，输入参数，这个输入参数会以环境变量的形式转入，会被转成小写
+    - 可选参数，一般会有一个默认值
+    - 在workflow file中使用这个action，需要用with关键字来指定输入参数
+    - 对于action的入参，对应的环境变量是 INPUT\_变量名,自动转大写，空格用\_代替
+    - input.input_id: 必选，字符串，用于标识入参
+        - description：入参的说明
+        - required： 是否是必选参数，false表示可选参数
+        - default： 默认值，这个可以不指定 
+- ouputs: 可选，输出参数
+    - 输出参数可以给工作流后续的action使用
+    - 自动转小写
+    - output_id: 必选，字符串，用于标识出参
+    - description： 说明，必选
+- runs： 必选，action要执行的命令
+    - using：指明，用来执行main中code的程序，eg：docker，node
+    - env: 可选，一个kv对，会设置成虚拟环境中的环境变量 
+    - main：对于js action，就是action code，配合using使用
+    - image：对于docker容器action，配额和using使用
+        - 这个镜像可以是docker hub的镜像，仓库里的Dockerfile文件，其他注册中心的镜像
+    - entrypoint：docker容器action用于覆盖Dockerfile的ENTRYPOINT
+        - 如果action中未指定runs关键字，那entrypoint指定的命令就会执行
+    - args：docker容器action，这个参数表示入参数组，这里面都是一些硬编码
+        - 这些参数会传给容器的ENTRYPOINT
+        - args就是用于替换Dockerfile中的CMD指令
+            - README中的必选参数，可在CMD中忽略
+            - 没有指定args，就使用默认值
+            - 如果action暴露了类似 --help标记，在文档中使用默认值
+- branding：品牌
+    - 可将创建的action作为一系列品牌发布出去
+    - 可以指定颜色和图标
 
