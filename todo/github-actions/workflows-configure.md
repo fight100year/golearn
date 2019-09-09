@@ -224,6 +224,47 @@ github actions利用github的api，让管理工作流(就是上面那些事)成�
 
 ## 事件
 
+- 事件，可配置什么事件发生时触发什么样的workflow
+- 当然除了事件，还有调度和外部事件都能触发wrokflow，这些都可以算成事件
+
+限制：
+- workflow中的action并不能触发另一个新的workflow
+
+webhook事件：
+- 可利用一个或多个webhook事件触发workflow
+- eg: on:push 或是 on:[push,pull_request]
+- 在一个workflow run中，GITHUB_SHA, GITHUB_REF都作为环境变量存在虚拟环境中
+- github事件有多种触发类型
+    - release，当有一个release版本执行发布/下架/创建/编辑/删除/预发布时触发
+- 也有部分事件只有一个触发类型
+    - 这时，action关键字会直接使用webhook payload
+    - eg: commit_commnet 只在提交comment时触发事件,push事件也是类似的
+    - eg：多触发类型： pull_request 里面有分配 取消分配 标签 取消标签 打开 编辑 repoen 加锁等多个触发类型
+- 对于每一个事件，可以设置一个触发类型，如果不设置，就会有一个默认设置
+    - 具体的默认设置可以查看[传送们](https://help.github.com/en/articles/events-that-trigger-workflows)
+    - pull_request事件中，默认只打开了少数几个触发类型
+- 目前github提供的api v3 有50个rust api,对应到github actions的事件有28个
+- fork 一个仓库，并提交pr
+    - 只会触发上游仓库的pull_request事件
+- 由于一些GITHUB_TOKEN机制，如果像让pr触发ci测试，要开启监听push事件
+
+调度事件：
+- 调度工作流基于默认分支或上游分支的最后一次提交
+- 使用的是posix corn语法
+- on.schedule.corn
+    - corn有5个由空格间隔的部分
+    - 5个部分分别是：分0-59/时0-23/每月的第几号1-31/月1-12/每周第几天0-6
+    - 这5个部分的交集就是指定时间
+    - \*表示匹配任何值
+    - ,表示当前字段是一个数组，可选多个值
+    - - 表示是一个范围值
+    - / 步长 字段分上的20/15 表示20 35 50 是条件
+
+外部事件：
+- 可以使用github 的api来触发一个webhook事件(repository_dispatch)
+- 这是在github外部触发工作流的事件
+- 如果要触发这个外部事件，需要用POST请求等，具体可查看文档
+
 ## 虚拟环境
 
 ## 虚拟环境中的软件
