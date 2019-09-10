@@ -33,3 +33,4 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
     - [github actions 工作流的配置](/todo/github-actions/workflows-configure.md)
     - [github actions 中action的构建](/todo/github-actions/build-actions.md)
     - [github actions 中ci的设置](/todo/github-actions/ci.md)
+    - [附加资料](/todo/github-actions/other.md)
