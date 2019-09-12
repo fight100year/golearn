@@ -184,4 +184,98 @@ quoted: "So does this
 
 ## tags
 
+- yaml用一个简单标识来表示原生数据结构信息，这个标识叫tag
+- 全局tag是uris，因此，在所有程序中都是唯一的
+- 通常，大多数tag不需要在字符流中显示指定
+- yaml除了是一个文本格式，也是一个将原生数据结构转换成文本格式的方法
+- 使用到yaml方法(将原生数据结构转换成文本格式)的模块，我们都称为程序，下面的程序都指这个
+- 一般 untagged的nodes的类型都依赖程序
+- 在fail saft架构下，一般使用 seq map str类型，分别对应数组 map string
+- 在json架构下，一般使用int float null类型
+- 在yaml仓库里的架构，还会使用二进制 有序map set等
 
+```ymal
+整数
+canonical: 12345
+decimal: +12345
+octal: 0o14
+hexadecimal: 0xC
+
+浮点
+canonical: 1.23015e+3
+exponential: 12.3015e+02
+fixed: 1230.15
+negative infinity: -.inf
+not a number: .NaN
+
+杂项
+null:
+booleans: [ true, false ]
+string: '012345'
+
+时间戳
+canonical: 2001-12-15T02:59:43.1Z
+iso8601: 2001-12-14t21:59:43.10-05:00
+spaced: 2001-12-14 21:59:43.10 -5
+date: 2002-12-14
+```
+
+- 上面都是一个简单类型，不需要使用tag
+- 也可以用!来显示指明一个tag
+- 全局tag是一个uris，也已使用tag简写(tag简写会附加一个handle)
+- 还有一种tag叫应用级tag
+
+```yaml
+显式tag
+---
+not-date: !!str 2002-04-28
+
+picture: !!binary |
+ R0lGODlhDAAMAIQAAP//9/X
+ 17unp5WZmZgAAAOfn515eXv
+ Pz7Y6OjuDg4J+fn5OTk6enp
+ 56enmleECcgggoBADs=
+
+application specific tag: !something |
+ The semantics of the tag
+ above may be different for
+ different documents.
+
+全局tag
+%TAG ! tag:clarkevans.com,2002:
+--- !shape
+  # Use the ! handle for presenting
+  # tag:clarkevans.com,2002:circle
+- !circle
+  center: &ORIGIN {x: 73, y: 129}
+  radius: 7
+- !line
+  start: *ORIGIN
+  finish: { x: 89, y: 102 }
+- !label
+  start: *ORIGIN
+  color: 0xFFEEBB
+  text: Pretty vector drawing.
+
+无序set
+# Sets are represented as a
+# Mapping where each key is
+# associated with a null value
+--- !!set
+? Mark McGwire
+? Sammy Sosa
+? Ken Griff
+
+有序map
+# Ordered maps are represented as
+# A sequence of mappings, with
+# each mapping having one key
+--- !!omap
+- Mark McGwire: 65
+- Sammy Sosa: 63
+- Ken Griffy: 58
+```
+
+## 总长度的例子
+
+发票和日志都可以放在yaml中表示

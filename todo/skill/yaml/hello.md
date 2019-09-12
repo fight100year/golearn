@@ -14,8 +14,8 @@
   - 数据序列化语言
 - 广泛使用于：从配置文件到网络消息，到对象持久话，到数据审计
 
-- [x] [介绍](/todo/skill/yaml/introduction.md)
-- [ ] [预览](/todo/skill/yaml/preview.md)
+- [x] [介绍](/todo/skill/yaml/introduction.md) 介绍yaml是什么，历史和定位
+- [x] [预览](/todo/skill/yaml/preview.md) 简单介绍一下yaml的基本概念，后面会详细讲
 - [ ] [yaml信息的处理](/todo/skill/yaml/process.md)
 - [ ] [语法转换](/todo/skill/yaml/syntax-conventions.md)
 - [ ] [字符集](/todo/skill/yaml/characters.md)
