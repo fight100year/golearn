@@ -19,7 +19,7 @@
 - [x] [yaml信息的处理](/todo/skill/yaml/process.md)
 - [x] [语法约定](/todo/skill/yaml/syntax-conventions.md)
 - [x] [字符](/todo/skill/yaml/characters.md)
-- [ ] [基础结构](/todo/skill/yaml/basic-structures.md)
+- [x] [基础结构](/todo/skill/yaml/basic-structures.md)
 - [ ] [flow风格](/todo/skill/yaml/flow-styles.md)
 - [ ] [block风格](/todo/skill/yaml/block-styles.md)
 - [ ] [yaml字符流](/todo/skill/yaml/character-stream.md)
