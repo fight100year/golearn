@@ -102,3 +102,97 @@ folded: >
 }
 ```
 
+- 引号，流式字面量
+
+```yaml
+# 流式 字面量 引号风格
+single: 'text'
+double: "text"
+
+%YAML 1.2
+---
+!!map {
+  ? !!str "single"
+  : !!str "text",
+  ? !!str "double"
+  : !!str "text",
+}
+```
+
+- %表示是指令行
+
+```yaml
+%YAML 1.2
+--- text
+
+#等同于
+%YAML 1.2
+---
+!!str "text"
+```
+
+- @和`是保留符号
+- 上面提到过的这些指示符号，[]{},这5个只用于流式集合中
+
+## 换行符
+
+- ascii的换行符有两种：回车 换行
+- 非ascii换行符也有一些，但json不支持，为了和json兼容，yaml不认为非ascii换行符是换行
+- 字面量里的换行符会被当成常规处理
+
+```yaml
+|
+  Line break (no glyph)
+  Line break (glyphed)↓
+
+%YAML 1.2
+---
+!!str "line break (no glyph)\n\
+      line break (glyphed)\n"
+```
+
+## 空白字符
+
+- 空白字符包含了空格和tab
+- 其他非打印的空白字符在yaml不算是空白字符
+
+```yaml
+# Tabs and spaces
+quoted:·"Quoted →"
+block:→|
+··void main() {
+··→printf("Hello, world!\n");
+··}
+
+%YAML 1.2
+---
+!!map {
+  ? !!str "quoted"
+  : "Quoted \t",
+  ? !!str "block"
+  : "void main() {\n\
+    \tprintf(\"Hello, world!\\n\");\n\
+    }\n",
+}
+```
+
+## 杂项字符
+
+- 数字字符 0-9
+- 16进制转义字符 a-f A-F
+- ascii的阿拉伯字母 a-z A-Z
+- 单词字符： 包含 数字 字母 和-(连字符)
+- tag的uri字符，包括[]和ipv6的相关字符
+  - 除了可打印的ascii字符，uri出现的其他字符，需要用utf-8编码，并用%进行转义
+  - yaml不会扩展这些字符
+  - tag字符是需要出现在yaml字符流中的，不能有转义处理的
+- !可用于标记tag处理的结尾，所以在tag缩写中是有限制的
+  - 为了避免二义性，不能包含[]{},
+
+## 转义字符
+
+- 不可打印的字符是需要转义的
+- 只有双引号字面量中才会出现转义
+- \ 就是转义字符的起始，[具体可转义的不可见字符包括](https://yaml.org/spec/1.2/spec.html#ns-esc-null)
+
+

@@ -18,7 +18,7 @@
 - [x] [预览](/todo/skill/yaml/preview.md) 简单介绍一下yaml的基本概念，后面会详细讲
 - [x] [yaml信息的处理](/todo/skill/yaml/process.md)
 - [x] [语法约定](/todo/skill/yaml/syntax-conventions.md)
-- [ ] [字符](/todo/skill/yaml/characters.md)
+- [x] [字符](/todo/skill/yaml/characters.md)
 - [ ] [基础结构](/todo/skill/yaml/basic-structures.md)
 - [ ] [flow风格](/todo/skill/yaml/flow-styles.md)
 - [ ] [block风格](/todo/skill/yaml/block-styles.md)
