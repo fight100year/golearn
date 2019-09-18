@@ -20,7 +20,7 @@
 - [x] [语法约定](/todo/skill/yaml/syntax-conventions.md)
 - [x] [字符](/todo/skill/yaml/characters.md)
 - [x] [基础结构](/todo/skill/yaml/basic-structures.md)
-- [ ] [flow风格](/todo/skill/yaml/flow-styles.md)
+- [x] [flow风格](/todo/skill/yaml/flow-styles.md)
 - [ ] [block风格](/todo/skill/yaml/block-styles.md)
 - [ ] [yaml字符流](/todo/skill/yaml/character-stream.md)
 - [ ] [推荐的schemas](/todo/skill/yaml/schemas.md)
