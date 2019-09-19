@@ -23,4 +23,4 @@
 - [x] [flow风格](/todo/skill/yaml/flow-styles.md)
 - [x] [block风格](/todo/skill/yaml/block-styles.md)
 - [x] [yaml字符流](/todo/skill/yaml/character-stream.md)
-- [ ] [推荐的schemas](/todo/skill/yaml/schemas.md)
+- [x] [推荐的schemas](/todo/skill/yaml/schemas.md)
