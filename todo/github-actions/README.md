@@ -60,8 +60,8 @@ github actions的定位：
     - 一个运行者同一时间只能跑一个job
 - event 事件
     - 一个具体的活动，用来触发工作流运行实例(workflow run)
-    - 这个活动(事件)可能来之github(可以是提交/issue的创建/pr的创建)
-    - 事件也可以来之github外部，eg：这里面要用到仓库的webhook
+    - 这个活动(事件)可能来至github(可以是提交/issue的创建/pr的创建)
+    - 事件也可以来至github外部，eg：这里面要用到仓库的webhook
 - artifact 输出
     - 构建和测试时生成的文件，eg：二进制或包文件，测试规则，屏幕截图，日志文件
     - artifact和workflow run一般是一起用的
@@ -75,6 +75,14 @@ github actions的定位：
 - workflow run就是具体的进程实例
 - workflow file就是配置文件
 
+实际上，为什么github actions是以action为最小单位：
+- 因为在整个开发部署节奏中，很多软件的套路都是一样的
+- eg：都需要构建，都需要测试
+- 构建细分为：拉取代码，编译，输出可执行
+- 拉取代码细分：通过授权访问svn/github，获取代码副本
+- 而这些细小的，功能性的小操作可以封成action，她们是具有可移植性的，可以被很多项目使用
+- 可以通过github action将代码静态检查/集成测试/部署通知和其他自定义操作放在工作流，自动化
+
 ## workflow run的通知
 
 - github actions 可启用邮件或web通知
@@ -84,7 +92,7 @@ github actions的定位：
 ## 在github社区获取actions
 
 - 自己分享：在公共仓库开源一些actions
-- 找别人的：取github.com/actions找
+- 找别人的：去github.com/actions找
 
 ## github actions 支持的语法
 
@@ -104,5 +112,3 @@ github actions的定位：
 ## 加入github actions 受限公共版
 
 - 目前github action的功能还在变更中，不推荐将高价值工作迁移到github actions
-
-
