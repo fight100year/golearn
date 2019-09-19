@@ -58,17 +58,17 @@ strategy:
     os: [ubuntu-14.04, ubuntu-18.04]
     node: [6, 8, 10]
 
-这个build矩阵要测试14和18下node版本为6/8/10 各种情况的组合
+# 这个build矩阵要测试14和18下node版本为6/8/10 各种情况的组合
 ```
 
-- 有很多标准的action也是可以直接使用的
-    - uses: actions/checkout@v1 就是checkout 标准的action，v1表示使用稳定版本
+- 有很多官方的action也是可以直接使用的
+    - uses: actions/checkout@v1 就是github官方维护的github.com/actions/checkout仓库，v1表示使用v1版本
     - 针对clone，也可以只克隆最新代码
 
 ```yaml
 - uses: actions/checkout@v1
   with:
-    fetch-depth: 1
+    fetch-depth: 1    # 只拉取最新代码
 ```
 
 - action的类型
@@ -84,26 +84,26 @@ strategy:
     - 引用docker hub中的容器，写法是docker://{image}:{tag}
 
 ```yaml
-引用公共仓库的action
+# 引用公共仓库的action
 jobs:
   my_first_job:
     name: My Job Name
       steps:
-        - uses: actions/setup-node@v1 引用github.com/actions/setup-node v1就是tag
+        - uses: actions/setup-node@v1 # 引用github.com/actions/setup-node v1就是tag
           with:
             node-version: 10.x
 
-引用同一仓库的action
+# 引用同一仓库的action
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       # This step checks out a copy of your repository.
-      - uses: actions/checkout@v1  引用公共仓库的
+      - uses: actions/checkout@v1                   # 引用公共仓库的
       # This step references the directory that contains the action.
-      - uses: ./.github/actions/hello-world-action  引用同一仓库的action
+      - uses: ./.github/actions/hello-world-action  # 引用同一仓库的action
 
-引用docker hub的容器
+# 引用docker hub的容器
 jobs:
   my_first_job:
     steps:
@@ -203,8 +203,10 @@ github actions利用github的api，让管理工作流(就是上面那些事)成�
         - max-parallel 可指定矩阵运行的job的最大并发数，github 会默认执行所有的矩阵
     - jobs.job_id.container
         - 在job中一个容器包含任意个step
+        - 如果指定了，这个job的所有step都跑在这个容器中
+          - 如果step也指定了容器,同时还有js脚本action，那么step指定的容器和job的容器是兄弟容器，一起运行
+          - 并这些容器共享网络和存储
         - 如果不设置容器，那所有的step都运行在虚拟环境
-        - 如果一个step中包含了脚本action和容器action，那容器action就运行在容器中，这些容器共享网络和存储
         - 容器可指定相关参数，如果不指定，可省略image关键字
         - image：docker镜像，生成的容器用于运行action
         - env：容器的环境变量，可用数组传递
@@ -225,7 +227,7 @@ github actions利用github的api，让管理工作流(就是上面那些事)成�
 ## 事件
 
 - 事件，可配置什么事件发生时触发什么样的workflow
-- 当然除了事件，还有调度和外部事件都能触发wrokflow，这些都可以算成事件
+- 当然除了github事件，还有调度和外部事件都能触发wrokflow，这些都可以算成事件
 
 限制：
 - workflow中的action并不能触发另一个新的workflow
