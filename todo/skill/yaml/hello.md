@@ -22,5 +22,5 @@
 - [x] [基础结构](/todo/skill/yaml/basic-structures.md)
 - [x] [flow风格](/todo/skill/yaml/flow-styles.md)
 - [x] [block风格](/todo/skill/yaml/block-styles.md)
-- [ ] [yaml字符流](/todo/skill/yaml/character-stream.md)
+- [x] [yaml字符流](/todo/skill/yaml/character-stream.md)
 - [ ] [推荐的schemas](/todo/skill/yaml/schemas.md)
