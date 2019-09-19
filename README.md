@@ -439,6 +439,7 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [go语言圣经](/gopl/README.md)
 - [etcd](/etcd/README.md)
 - [CoreDNS](/coredns/README.md)
+- [干净的架构](/clean architecture/README.md)
 
 ### new lib
 - [pion-webrtc](/pion-webrtc/README.md)
@@ -489,13 +490,15 @@ http get是没有消息体，也就是没有body的，她的参数都是加在ur
 - [encoding](/pkg/encoding.md)
 - [html/template](/pkg/html.md)
 
+[标准库](/std/README.md)和[关系](https://www.draw.io/?mode=github#H63isOK%2Fconference_graph%2Fmaster%2Fgo%20v1.12.6%E6%A0%87%E5%87%86%E5%BA%93%E4%BE%9D%E8%B5%96%E5%9B%BE-%E5%85%B1193%E4%B8%AA)
+
 # 未来 TODO
 
 需要奋力追赶的方向，也是欠下的技术债
 
 - [规范](/todo/README.md) git流 github流 k8s流等，提升沟通效率，是主流社区交流的语言，也是对开发测试部署/项目工程管理的一些共同认识
-- [效能工具]() 高效能开发的基础，将目光集中在创新(coding)_，提高自己和团队的效率，包括源码管理，ci/cd
-- [技能]() 包括基础的语言和开发包，核心价值的基础，目前主要方向是go语言
+- [效能工具]() 高效能开发的基础，将目光集中在创新(coding)，提高自己和团队的效率，包括源码管理，ci/cd
+- [技能](/todo/skill/README.md) 包括基础的语言和开发包，核心价值的基础，目前主要方向是go语言
 - [开发部署套件]() 和效能工具有所区别，效能工具侧重点在使用，而这里主要关注工具的深度学习，eg：docker git k8s vim等
 - [方向]() 包含的东西很多：架构(包括设计和系统部署) 微服务 性能架构
 - [团队管理]() 30岁的年纪，20岁的情商
