@@ -272,17 +272,18 @@ webhook事件：
 - 这个虚拟环境由github提供，里面包含了一些工具/包/可设置的action
 - 这些虚拟环境跑在微软的azure(一个云服务)，具体是Standard_DS2_v2机器，毕竟github给微软收购了
 - windows和linux跑在Standard_DS2_v2虚拟机，macos跑在macstadium
-- 可以直接跑在虚拟环境中，或泡在docker容器中
+- 可以直接跑在虚拟环境中，或跑在docker容器中
 - 每个job都放在一个独立的虚拟环境实例中
     - job中的step都在这个虚拟环境实例中运行
-    - 所有action就能利用文件系统共享书信
+    - 所有action就能利用文件系统共享通信
     - 当然，也可以配置成job都跑在同一个环境中
 - 每个虚拟环境可用资源是 双核cpu/7G内存/14G ssd磁盘空间
 
 直接跑在虚拟环境中，部分文件系统路径：
 - docker容器运行的action，是在/github目录下，而脚本的的目录并不是静态的
 - github actions中可配置 home/workspace/workflow目录
-    - home： 用户数据，环境变量对应HOME - workspace： actions执行目录，环境变量对应 GITHUB_WORKSAPCE
+    - home： 用户数据，环境变量对应HOME 
+    - workspace： actions执行目录，环境变量对应 GITHUB_WORKSAPCE
     - workflow/event.json： 触发工作流的webhook事件的POST payload，环境变量对应GITHUB_EVENT_PATH
 
 跑在docker容器，部分文件系统路径：
@@ -294,7 +295,7 @@ webhook事件：
 - 一般在配置文件 workflow file中指定环境变量
 - 可以通过jobs.job_id.steps.env 来为一个spte指定环境变量
 - github会自动将环境变量转成大写，所以在配置中写环境变量时，大小写均是支持的
-- 推荐在actions中使用环境变量来访问文件系统，而不是硬编码(直接将文件路径卸载actins中)
+- 推荐在actions中使用环境变量来访问文件系统，而不是硬编码(直接将文件路径写在actins中)
 - 虚拟环境已经提供了一些默认的环境变量，具体可查看文档
 - 自定义的环境变量来表示文件路径，推荐使用\_PATH作为后缀
 
@@ -316,7 +317,7 @@ webhook事件：
 ## github actions 上下文和表达式语法
 
 表达式：
-- 可以通过表示来设置workflow file中的值，并访问上下文
+- 可以通过表达示来设置workflow file中的值，并访问上下文
 - 表达式可以是 文字值 上下文引用 函数 进行组合，组合的方式是通过操作符
 - 配置中是可以使用if语句的，if语句后使用表达式，是表达式最常使用场景
 - 使用if 后接表达式， 此时表达式不用使用$, 因为此时github会自动当成表达式去计算
@@ -339,7 +340,7 @@ webhook事件：
 - boolean： 值有true和false
 - null：值是null
 - number： json支持的数值格式
-- string：单引号包围的字符串，里面如果含有单引号，是需要转以的
+- string：单引号包围的字符串，里面如果含有单引号，是需要转义的
 - 这些字面量可以直接用于组合表达式
 
 还有一些操作符，具体可以查看文档：

@@ -1,5 +1,9 @@
 # 构建action
 
+- 一个可用的action，要包含元文件和action代码文件
+- 元文件用于定义输入输出，叫action.yml，(不是必需的，有些action的输入比较简单，可直接通过环境变量来搞定)
+- action代码文件，主要定义action的运行环境和执行命令
+
 ## action 的说明
 
 - 可以编写自定义代码来创建actions
@@ -15,7 +19,7 @@
         - 这样的好处是更加一致和可靠，使用者也不用担心工具和依赖的不一致
         - docker容器的actions，要放在github的linux环境中运行
         - 在容器中可指定操作系统版本/依赖/工具/代码，而action运行正需要指定这些信息，简直是绝配
-        - 因为容器的创建和检索，docker容器action要必js action慢一点
+        - 因为容器的创建和检索，docker容器action要比js action慢一点
     - js actions 
         - 这类的action是可以直接在github提供的虚拟环境中直接运行的
         - action 代码和运行这个代码的环境是分开的
@@ -84,6 +88,12 @@ docker容器型action和js型的action都需要一个元文件，action.yml,
 - branding：品牌
     - 可将创建的action作为一系列品牌发布出去
     - 可以指定颜色和图标
+
+## 创建一个js action
+
+
+
+## 创建一个docker action
 
 ## github actions 开发工具
 
