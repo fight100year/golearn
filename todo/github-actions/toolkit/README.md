@@ -12,8 +12,8 @@
   - @actions/github Octokit客户端和action运行的上下文(Octokit是一个github api客户端，13年发布的)
 
 action要么运行在容器中，要么运行在github提供的host机器上
-- [ ] [选择哪种action类型](/todo/github-actions/toolkit/action-type.md)
-- [ ] [创建js action的简单示例](/todo/github-actions/toolkit/js-action-hello.md)
+- [x] [选择哪种action类型](/todo/github-actions/toolkit/action-type.md)
+- [x] [创建js action的简单示例](/todo/github-actions/toolkit/js-action-hello.md)
 - [ ] [js action 例子](/todo/github-actions/toolkit/js-action.md)，test/lint/workflow/publish/version
 - [ ] [TypeScript action 例子](/todo/github-actions/toolkit/ts-action.md)，compile/test/lint/workflow/publish/version
 - [ ] [docker action 例子](/todo/github-actions/toolkit/docker-action.md)
