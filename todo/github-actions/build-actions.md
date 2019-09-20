@@ -91,7 +91,7 @@ docker容器型action和js型的action都需要一个元文件，action.yml,
 
 ## 创建一个js action
 
-
+- 创建一个action，需要使用一个官方的套件，在actions/tookkit
 
 ## 创建一个docker action
 
