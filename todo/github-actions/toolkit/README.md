@@ -18,4 +18,4 @@ action要么运行在容器中，要么运行在github提供的host机器上
 - [x] [TypeScript action 例子](/todo/github-actions/toolkit/ts-action.md)，compile/test/lint/workflow/publish/version
 - [x] [docker action 例子](/todo/github-actions/toolkit/docker-action.md)
 - [ ] [使用octokit的docker action例子](/todo/github-actions/toolkit/docker-action-octokit.md)
-- [ ] [action的版本](/todo/github-actions/toolkit/version.md)，打版本，发布，tag打标签
+- [x] [action的版本](/todo/github-actions/toolkit/version.md)，打版本，发布，tag打标签
