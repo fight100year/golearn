@@ -14,7 +14,7 @@
 action要么运行在容器中，要么运行在github提供的host机器上
 - [x] [选择哪种action类型](/todo/github-actions/toolkit/action-type.md)
 - [x] [创建js action的简单示例](/todo/github-actions/toolkit/js-action-hello.md)
-- [ ] [js action 例子](/todo/github-actions/toolkit/js-action.md)，test/lint/workflow/publish/version
+- [x] [js action 例子](/todo/github-actions/toolkit/js-action.md)，test/lint/workflow/publish/version
 - [ ] [TypeScript action 例子](/todo/github-actions/toolkit/ts-action.md)，compile/test/lint/workflow/publish/version
 - [ ] [docker action 例子](/todo/github-actions/toolkit/docker-action.md)
 - [ ] [使用octokit的docker action例子](/todo/github-actions/toolkit/docker-action-octokit.md)
