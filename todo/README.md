@@ -29,4 +29,12 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
     - 善用github
     - 编码能力的提升在于长时间的练习
     - 质量保证使用tdd/重构
-
+- [github actions的使用](/todo/github-actions/README.md)
+    - [github actions 工作流的配置](/todo/github-actions/workflows-configure.md)
+    - [github actions 中action的构建](/todo/github-actions/build-actions.md)
+      - github actions [开发套件的学习](/todo/github-actions/toolkit/README.md)
+    - [创建js action](/todo/github-actions/create-js-actions.md)
+    - [创建docker action](/todo/github-actions/create-docker-actions.md)
+    - [github action的日志控制](/todo/github-actions/logs.md)
+    - [github actions 中ci的设置](/todo/github-actions/ci.md)
+    - [附加资料](/todo/github-actions/other.md)
