@@ -89,10 +89,3 @@ docker容器型action和js型的action都需要一个元文件，action.yml,
     - 可将创建的action作为一系列品牌发布出去
     - 可以指定颜色和图标
 
-## github actions 开发工具
-
-利用github actions的node.js开发套件来创建js action非常快
-
-- 使用node.js工具套件
-
-还有使用日志命令 具体可查看文档
