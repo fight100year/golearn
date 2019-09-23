@@ -33,7 +33,7 @@
 - 屏蔽日志中的值
   - ::add-mask::{value}
   - echo ::add-mask::Mona The Octocat
-  - 说白了就是简爱嗯 "Mona The Octocat" 变成"\*\*\*"
+  - 说白了就是简单的 "Mona The Octocat" 变成"\*\*\*"
 - 开始或暂停日志命令
   - ::stop-commands::{endtoken}
   - echo ::stop-commands::pause-logging  停止解析日志命令

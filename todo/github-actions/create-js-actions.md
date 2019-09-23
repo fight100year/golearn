@@ -31,7 +31,7 @@ runs:
   main: 'index.js'
 ```
 
-- 这是一个简爱的js actin元信息
+- 这是一个简洁的js actin元信息
 - 包含了输入输出，执行信息
 
 ## nodejs相关
