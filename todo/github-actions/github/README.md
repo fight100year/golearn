@@ -7,3 +7,5 @@
   - 说明：将项目克隆到指定目录，并将git头指针指向指定版本
 - [actions/setup-go](/todo/github-actions/github/setup-go.md) 安装go环境
   - 说明：非常适合使用矩阵构建，测试多平台的开发
+- [一个推荐的go ci](/todo/github-actions/github/go-ci.md)
+  - 基于ci/cd的，可以基于这个workflow进行扩展
