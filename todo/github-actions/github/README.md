@@ -9,3 +9,5 @@
   - 说明：非常适合使用矩阵构建，测试多平台的开发
 - [一个推荐的go ci](/todo/github-actions/github/go-ci.md)
   - 基于ci/cd的，可以基于这个workflow进行扩展
+- [actions/first-interaction](/todo/github-actions/github/first-interaction.md)
+  - 贡献者第一次创建issues和pr时，发送一条指定信息
