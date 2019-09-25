@@ -12,4 +12,6 @@
 - [actions/first-interaction](/todo/github-actions/github/first-interaction.md)
   - 贡献者第一次创建issues和pr时，发送一条指定信息
 - [actions/labeler](/todo/github-actions/github/labeler.md)
-  - 自动为pr打标签
+  - 根据pr修改的文件路径自动为pr打标签
+- [actions/stale](/todo/github-actions/github/stale.md)
+  - 标记并关闭一段时间内未更新的issues/pr
