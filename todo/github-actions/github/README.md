@@ -23,3 +23,5 @@
   - 通过action来发布一个release版本, 发布的tag是时间格式，后期可以修改一下
 - [softprops/action-gh-release](/todo/github-actions/github/publish-release2.md)
   - 通过action来发布一个release版本，主要基于tag来触发
+- [einaregilsson/build-number](/todo/github-actions/github/build-number.md)
+  - 通过action生成一个带顺序的build号,action每执行一次，build号加1
