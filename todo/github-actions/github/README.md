@@ -21,3 +21,5 @@
   - 将workflow中的输出进行上传,在github页面上可点击下载按钮进行下载
 - [elgohr/Github-Release-Action](/todo/github-actions/github/publish-release.md)
   - 通过action来发布一个release版本, 发布的tag是时间格式，后期可以修改一下
+- [softprops/action-gh-release](/todo/github-actions/github/publish-release2.md)
+  - 通过action来发布一个release版本，主要基于tag来触发
