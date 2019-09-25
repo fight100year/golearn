@@ -17,3 +17,5 @@
   - 标记并关闭一段时间内未更新的issues/pr
 - [actions/download-artifact](/todo/github-actions/github/download-artifact.md)
   - 下载构建的输出文件
+- [actions/upload-artifact](/todo/github-actions/github/upload-artifact.md)
+  - 将workflow中的输出进行上传,在github页面上可点击下载按钮进行下载
