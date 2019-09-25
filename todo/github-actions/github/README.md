@@ -15,3 +15,5 @@
   - 根据pr修改的文件路径自动为pr打标签
 - [actions/stale](/todo/github-actions/github/stale.md)
   - 标记并关闭一段时间内未更新的issues/pr
+- [actions/download-artifact](/todo/github-actions/github/download-artifact.md)
+  - 下载构建的输出文件
