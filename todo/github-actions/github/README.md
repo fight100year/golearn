@@ -11,3 +11,5 @@
   - 基于ci/cd的，可以基于这个workflow进行扩展
 - [actions/first-interaction](/todo/github-actions/github/first-interaction.md)
   - 贡献者第一次创建issues和pr时，发送一条指定信息
+- [actions/labeler](/todo/github-actions/github/labeler.md)
+  - 自动为pr打标签
