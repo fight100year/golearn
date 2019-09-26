@@ -36,3 +36,5 @@
   - 安全信息会自动过滤
 - [cds-snc/github-actions/touched](/todo/github-actions/github/touched.md)
   - 在push中，匹配到指定文件，action就通过，未匹配到就不通过
+- [cds-snc/github-actions/seekret](/todo/github-actions/github/seekret.md)
+  - 利用seekret工具来扫描源码中的可能泄漏的安全信息
