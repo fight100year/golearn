@@ -29,3 +29,5 @@
   - sleep n秒
 - [maddox/ations/wait-for-200](/todo/github-actions/github/wait-for-200.md)
   - 检查http的状态是否是200,还添加重试功能
+- [maddox/ations/ssh](/todo/github-actions/github/ssh.md)
+  - 通过ssh连接上host，并运行一些东西
