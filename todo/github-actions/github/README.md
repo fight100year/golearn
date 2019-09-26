@@ -38,3 +38,5 @@
   - 在push中，匹配到指定文件，action就通过，未匹配到就不通过
 - [cds-snc/github-actions/seekret](/todo/github-actions/github/seekret.md)
   - 利用seekret工具来扫描源码中的可能泄漏的安全信息
+- [zweitag/github-actions/global-variables](/todo/github-actions/github/global-variables.md)
+  - 读一个文件的kv对，转换成环境变量。这个操作只适用于当前虚拟环境，也就是只适用于当前job
