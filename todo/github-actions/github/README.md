@@ -49,3 +49,7 @@
 - [jessfraz/shaking-finger-action](/todo/github-actions/github/shaking-finger.md)
   - 一个搞笑(不应该出现正式项目中的action)，不过可以替换成一些其他内容
   - pr检测未通过时，显示某些内容
+- [vsoch/pull-request-action](/todo/github-actions/github/open-pr.md)
+  - 当分支有push或更新时，开启一个pr,推到指定分支
+  - 推荐只在开发分支
+  - 适用范围太小，暂不深入
