@@ -53,3 +53,5 @@
   - 当分支有push或更新时，开启一个pr,推到指定分支
   - 推荐只在开发分支
   - 适用范围太小，暂不深入
+- [jessfraz/branch-cleanup-action](/todo/github-actions/github/pr-clean-branch.md)
+  - pr合并之后，删除相应的pr分支
