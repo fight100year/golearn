@@ -27,3 +27,5 @@
   - 通过action生成一个带顺序的build号,action每执行一次，build号加1
 - [maddox/actions/sleep](/todo/github-actions/github/sleep.md)
   - sleep n秒
+- [maddox/ations/wait-for-200](/todo/github-actions/github/wait-for-200.md)
+  - 检查http的状态是否是200,还添加重试功能
