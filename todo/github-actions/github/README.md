@@ -34,3 +34,5 @@
 - [hmarr/debug-action](/todo/github-actions/github/debug.md)
   - 开发调试action的助手，可以打印环境变量和事件的payload
   - 安全信息会自动过滤
+- [cds-snc/github-actions/touched](/todo/github-actions/github/touched.md)
+  - 在push中，匹配到指定文件，action就通过，未匹配到就不通过
