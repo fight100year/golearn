@@ -42,3 +42,5 @@
   - 读一个文件的kv对，转换成环境变量。这个操作只适用于当前虚拟环境，也就是只适用于当前job
 - [ArangoGutierrez/GoLinty-Action](/todo/github-actions/github/golint.md)
   - 在pr中，执行go lint
+- [bobheadxi/gobenchdata](/todo/github-actions/github/gobenchdata.md)
+  - ci test中的benchmark测试,包含了ci/cd

@@ -162,8 +162,9 @@ main "$@"
 ## 使用
 
 - 这个action是利用一个配置文件来配置lint的
-- 这个配置文件里列出了一个lint的表，哪些lint启用都可以配置
+- 这个配置文件里列出了哪些包需要进行lint的
 - 这个配置放在源码目录的 .linty/linty.conf
+- 这个配置里的内容就是包的路径，eg： github.com/ArangoGutierrez/pingpong/cmd/server
 
 最后的使用如下：
 
