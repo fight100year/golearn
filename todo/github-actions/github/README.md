@@ -25,3 +25,5 @@
   - 通过action来发布一个release版本，主要基于tag来触发
 - [einaregilsson/build-number](/todo/github-actions/github/build-number.md)
   - 通过action生成一个带顺序的build号,action每执行一次，build号加1
+- [maddox/actions/sleep](/todo/github-actions/github/sleep.md)
+  - sleep n秒
