@@ -31,3 +31,6 @@
   - 检查http的状态是否是200,还添加重试功能
 - [maddox/ations/ssh](/todo/github-actions/github/ssh.md)
   - 通过ssh连接上host，并运行一些东西
+- [hmarr/debug-action](/todo/github-actions/github/debug.md)
+  - 开发调试action的助手，可以打印环境变量和事件的payload
+  - 安全信息会自动过滤
