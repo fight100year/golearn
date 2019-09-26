@@ -46,3 +46,6 @@
   - ci test中的benchmark测试,包含了ci/cd
 - [pullreminders/assignee-to-reviewer-action](/todo/github-actions/github/assignee-to-reviewer-action.md)
   - 对于pr，当设置负责人或取消时，自动将将其和审阅人对应起来
+- [jessfraz/shaking-finger-action](/todo/github-actions/github/shaking-finger.md)
+  - 一个搞笑(不应该出现正式项目中的action)，不过可以替换成一些其他内容
+  - pr检测未通过时，显示某些内容
