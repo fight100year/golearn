@@ -40,3 +40,5 @@
   - 利用seekret工具来扫描源码中的可能泄漏的安全信息
 - [zweitag/github-actions/global-variables](/todo/github-actions/github/global-variables.md)
   - 读一个文件的kv对，转换成环境变量。这个操作只适用于当前虚拟环境，也就是只适用于当前job
+- [ArangoGutierrez/GoLinty-Action](/todo/github-actions/github/golint.md)
+  - 在pr中，执行go lint
