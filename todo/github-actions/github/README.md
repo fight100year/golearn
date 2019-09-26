@@ -44,3 +44,5 @@
   - 在pr中，执行go lint
 - [bobheadxi/gobenchdata](/todo/github-actions/github/gobenchdata.md)
   - ci test中的benchmark测试,包含了ci/cd
+- [pullreminders/assignee-to-reviewer-action](/todo/github-actions/github/assignee-to-reviewer-action.md)
+  - 对于pr，当设置负责人或取消时，自动将将其和审阅人对应起来
