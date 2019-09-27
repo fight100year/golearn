@@ -70,3 +70,6 @@
   - 和[pullreminders/assignee-to-reviewer-action](/todo/github-actions/github/assignee-to-reviewer-action.md)类似
   - 不过一个是基于负责人来分配审阅人，另一个是基于配置文件
   - 如果项目有code owners，就不用这么麻烦了
+- [cds-snc/github-actions/auto-commit](/todo/github-actions/github/auto-commit.md)
+  - 利用action进行提交
+  - 没想到应用场景
