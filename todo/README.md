@@ -38,3 +38,4 @@ go docker k8s 已经成为很多大牛选择的方向，其中包括很多国内
     - [github action的日志控制](/todo/github-actions/logs.md)
     - [github actions 中ci的设置](/todo/github-actions/ci.md)
     - [附加资料](/todo/github-actions/other.md)
+- [github官方action的学习](/todo/github-actions/github/README.md),主要分析github官方提供的action
