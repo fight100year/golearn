@@ -63,3 +63,5 @@
 - [banyan/auto-label](/todo/github-actions/github/auto-label.md)
   - 做的事和[actions/labeler](/todo/github-actions/github/labeler.md)是一样的
   - 都是根据事先预定的规则，和pr的文件路径进行匹配，最后自动给pr打上标签
+- [hmarr/auto-approve-action](/todo/github-actions/github/auto-approve.md)
+  - pr的自动审阅通过,可以过滤一部分人，只有这些人的pr才会自动审阅通过
