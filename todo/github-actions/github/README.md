@@ -73,3 +73,5 @@
 - [cds-snc/github-actions/auto-commit](/todo/github-actions/github/auto-commit.md)
   - 利用action进行提交
   - 没想到应用场景
+- [cirrus-actions/email](/todo/github-actions/github/email.md)
+  - 更具github的check suite完成之后的状态，进行发送邮件
