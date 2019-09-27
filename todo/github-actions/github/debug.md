@@ -1,4 +1,4 @@
-# maddox/actions/ssh
+# hmarr/debug-action
 
 - docker action
 - 打印环境变量和evnet payload
