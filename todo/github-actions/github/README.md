@@ -60,3 +60,6 @@
   - 好处是减少ui操作
 - [pullreminders/label-when-approved-action](/todo/github-actions/github/label-when-approved.md)
   - 对于一个pr，审阅通过一定次数后，可添加指定标签，也可删除某个标签(删除是可选的)
+- [banyan/auto-label](/todo/github-actions/github/auto-label.md)
+  - 做的事和[actions/labeler](/todo/github-actions/github/labeler.md)是一样的
+  - 都是根据事先预定的规则，和pr的文件路径进行匹配，最后自动给pr打上标签
