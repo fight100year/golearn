@@ -1,6 +1,7 @@
 # cds-snc/github-actions/auto-commit
 
 - docker action
+- 通过action来做commit
 
 ## 仓库分析
 
