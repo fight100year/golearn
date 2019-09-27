@@ -65,3 +65,8 @@
   - 都是根据事先预定的规则，和pr的文件路径进行匹配，最后自动给pr打上标签
 - [hmarr/auto-approve-action](/todo/github-actions/github/auto-approve.md)
   - pr的自动审阅通过,可以过滤一部分人，只有这些人的pr才会自动审阅通过
+- [kentaro-m/auto-assign](/todo/github-actions/github/auto-assign.md)
+  - 当有pr时，自动添加审阅人
+  - 和[pullreminders/assignee-to-reviewer-action](/todo/github-actions/github/assignee-to-reviewer-action.md)类似
+  - 不过一个是基于负责人来分配审阅人，另一个是基于配置文件
+  - 如果项目有code owners，就不用这么麻烦了
