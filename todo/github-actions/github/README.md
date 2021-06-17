@@ -55,3 +55,25 @@
   - 适用范围太小，暂不深入
 - [jessfraz/branch-cleanup-action](/todo/github-actions/github/pr-clean-branch.md)
   - pr合并之后，删除相应的pr分支
+- [repetitive/actions/auto-pull-request](/todo/github-actions/github/auto-pull-request.md)
+  - 创建一个新分支，就自动创建一个pr(当然是将新分支推送到github，会自动创建pr的)
+  - 好处是减少ui操作
+- [pullreminders/label-when-approved-action](/todo/github-actions/github/label-when-approved.md)
+  - 对于一个pr，审阅通过一定次数后，可添加指定标签，也可删除某个标签(删除是可选的)
+- [banyan/auto-label](/todo/github-actions/github/auto-label.md)
+  - 做的事和[actions/labeler](/todo/github-actions/github/labeler.md)是一样的
+  - 都是根据事先预定的规则，和pr的文件路径进行匹配，最后自动给pr打上标签
+- [hmarr/auto-approve-action](/todo/github-actions/github/auto-approve.md)
+  - pr的自动审阅通过,可以过滤一部分人，只有这些人的pr才会自动审阅通过
+- [kentaro-m/auto-assign](/todo/github-actions/github/auto-assign.md)
+  - 当有pr时，自动添加审阅人
+  - 和[pullreminders/assignee-to-reviewer-action](/todo/github-actions/github/assignee-to-reviewer-action.md)类似
+  - 不过一个是基于负责人来分配审阅人，另一个是基于配置文件
+  - 如果项目有code owners，就不用这么麻烦了
+- [cds-snc/github-actions/auto-commit](/todo/github-actions/github/auto-commit.md)
+  - 利用action进行提交
+  - 没想到应用场景
+- [cirrus-actions/email](/todo/github-actions/github/email.md)
+  - 更具github的check suite完成之后的状态，进行发送邮件
+- [ocular-d/md-linkcheck-action](/todo/github-actions/github/md-lint.md)
+  - 利用nodjs中的markdown-link-check来做md的lint检查
